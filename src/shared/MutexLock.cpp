@@ -3,56 +3,53 @@
 
 MutexLock::MutexLock()
 {
-    int ret = pthread_mutex_init(&_mutex, nullptr);
-    if(ret)
-    {
+    int ret = pthread_mutex_init(&mutex_, nullptr);
+    if (ret != 0) {
         perror("pthread_mutex_init");
-        return;
+        // 可以考虑抛出异常或其他错误处理方式
     }
 }
 
 MutexLock::~MutexLock()
 {
-    int ret = pthread_mutex_destroy(&_mutex);
-    if(ret)
-    {
+    int ret = pthread_mutex_destroy(&mutex_);
+    if (ret != 0) {
         perror("pthread_mutex_destroy");
-        return;
+        // 可以考虑抛出异常或其他错误处理方式
     }
 }
 
-//上锁
 void MutexLock::lock()
 {
-    int ret = pthread_mutex_lock(&_mutex);
-    if(ret)
-    {
+    int ret = pthread_mutex_lock(&mutex_);
+    if (ret != 0) {
         perror("pthread_mutex_lock");
-        return;
+        // 可以考虑抛出异常或其他错误处理方式
     }
 }
-//尝试上锁
-void MutexLock::tryLock()
+
+bool MutexLock::tryLock()
 {
-    int ret = pthread_mutex_trylock(&_mutex);
-    if(ret)
-    {
+    int ret = pthread_mutex_trylock(&mutex_);
+    if (ret == EBUSY) {
+        return false;
+    } else if (ret != 0) {
         perror("pthread_mutex_trylock");
-        return;
+        // 可以考虑抛出异常或其他错误处理方式
     }
+    return true;
 }
-//解锁
+
 void MutexLock::unlock()
 {
-    int ret = pthread_mutex_unlock(&_mutex);
-    if(ret)
-    {
+    int ret = pthread_mutex_unlock(&mutex_);
+    if (ret != 0) {
         perror("pthread_mutex_unlock");
-        return;
+        // 可以考虑抛出异常或其他错误处理方式
     }
 }
-//获取数据成员
-pthread_mutex_t *MutexLock::getMutexLockPtr()
+
+pthread_mutex_t* MutexLock::getMutexLockPtr()
 {
-    return &_mutex;
+    return &mutex_;
 }

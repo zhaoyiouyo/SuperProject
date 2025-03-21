@@ -1,31 +1,49 @@
 #pragma once
 
+/**
+ * @brief 定义了磁带驱动器可能执行的各种操作。
+ *
+ * 每个枚举值对应一种特定的操作类型：
+ * - READ_AGGR: 读聚合操作
+ * - WRITE_AGGR: 写聚合操作
+ * - LOAD_TAPE: 加载磁带操作
+ * - UNLOAD_TAPE: 卸载磁带操作
+ * - INVENTORY: 库存检查操作
+ * - ROLL_TAPE: 卷带操作
+ */
 enum class TypeOperation {
-    READ_AGGR = 1,
-    WRITE_AGGR,
-    LOAD_TAPE,
-    UNLOAD_TAPE,
-    INVENTORY,
-    ROLL_TAPE
+    READ_AGGR = 1,    ///< 读聚合操作
+    WRITE_AGGR,       ///< 写聚合操作
+    LOAD_TAPE,        ///< 加载磁带操作
+    UNLOAD_TAPE,      ///< 卸载磁带操作
+    INVENTORY,        ///< 库存检查操作
+    ROLL_TAPE         ///< 卷带操作
 };
 
 class TapeDrivesOperation {
 public:
+    /**
+     * @brief 构造函数，初始化 TapeDrivesOperation 对象。
+     *
+     * @param op 初始的操作类型。
+     */
     TapeDrivesOperation(TypeOperation op);
 
     /**
-     * @param 获取操作类型
-     * @return 枚举类型，磁带的操作
+     * @brief 获取当前的操作类型。
+     *
+     * @return TypeOperation 当前的操作类型。
      */
     TypeOperation getTypeOperation();
 
     /**
-     * @param 修改操作
-     * @param op 枚举类型，磁带的操作
+     * @brief 设置新的操作类型。
+     *
+     * @param op 新的操作类型。
      */
     void setTypeOperation(TypeOperation op);
 
 
 private:
-    TypeOperation op_;
+    TypeOperation op_; ///< 存储当前的操作类型。
 };
