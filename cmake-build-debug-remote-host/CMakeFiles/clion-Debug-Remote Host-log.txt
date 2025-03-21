@@ -1,0 +1,10 @@
+/usr/local/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G Ninja -S /home/zhaoyiou/SuperProject -B /home/zhaoyiou/SuperProject/cmake-build-debug-remote-host
+-- Configuring done (0.0s)
+CMake Error in CMakeLists.txt:
+  Target "network_framework" requires the language dialect "CXX20" (with
+  compiler extensions).  But the current compiler "GNU" does not support
+  this, or CMake does not know the flags to enable it.
+
+
+-- Generating done (0.0s)
+CMake Generate step failed.  Build files cannot be regenerated correctly.
