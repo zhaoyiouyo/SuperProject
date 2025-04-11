@@ -1,0 +1,2 @@
+/usr/bin/ar qc libjob_lib.a CMakeFiles/job_lib.dir/JobManager.cpp.o CMakeFiles/job_lib.dir/JobQueue.cpp.o
+/usr/bin/ranlib libjob_lib.a

@@ -44,7 +44,22 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared/cmake_install.cmake")
+  include("/home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared/mutex/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared/queue/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/zhaoyiou/SuperProject/cmake-build-debug-/src/tape/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/zhaoyiou/SuperProject/cmake-build-debug-/src/job/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

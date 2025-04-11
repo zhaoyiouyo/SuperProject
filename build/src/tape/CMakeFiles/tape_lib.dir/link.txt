@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtape_lib.a CMakeFiles/tape_lib.dir/TapeDrivesQueue.cpp.o CMakeFiles/tape_lib.dir/TapeDrivesOperation.cpp.o
+/usr/bin/ranlib libtape_lib.a

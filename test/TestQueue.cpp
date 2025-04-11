@@ -1,38 +1,27 @@
+#include "JobQueue.hpp"
 #include <iostream>
-#include "shared/BaseQueue.hpp"
-#include "shared/TapeDrivesQueue.hpp"
-#include "TapeDrivesOperation.hpp"
-
-void moduleA() {
-    TapeDrivesQueue& queue1 = TapeDrivesQueue::getInstance();
-    queue1.push_back(TapeDrivesOperation(TypeOperation::LOAD_TAPE));
-    queue1.push_back(TapeDrivesOperation(TypeOperation::READ_AGGR));
-    queue1.push_back(TapeDrivesOperation(TypeOperation::LOAD_TAPE));
-    queue1.push_back(TapeDrivesOperation(TypeOperation::READ_AGGR));
-    queue1.push_back(TapeDrivesOperation(TypeOperation::LOAD_TAPE));
-    queue1.push_back(TapeDrivesOperation(TypeOperation::READ_AGGR));
-    queue1.push_front(TapeDrivesOperation(TypeOperation::READ_AGGR));
-    auto ele1 = queue1.pop_back();
-    std::cout << "Module A: pop_back " << static_cast<int>(ele1.getTypeOperation()) << std::endl;
-    auto ele2 = queue1.pop_front();
-    std::cout << "Module A: pop_front " << static_cast<int>(ele2.getTypeOperation()) << std::endl;
-
-    std::cout << "Module A: Size = " << queue1.size() << std::endl;
-}
 
 int main() {
-    moduleA();
+    JobQueue& jobQueue = JobQueue::getInstance();
 
-    TapeDrivesQueue& queue1 = TapeDrivesQueue::getInstance();
-    for (auto it = queue1.begin(); it != queue1.end(); ++it) {
-        std::cout << static_cast<int>(it->getTypeOperation()) << " ";
+    // 添加一些任务到队列中
+    JobInfo job1{.status = JobStatus::Queuing, .job_id = "1"};
+    JobInfo job2{.status = JobStatus::Suspending, .job_id = "2"};
+    JobInfo job3{.status = JobStatus::Retry, .job_id = "3"};
+
+    jobQueue.enqueue(JobManager(job1));
+    jobQueue.enqueue(JobManager(job2));
+    jobQueue.enqueue(JobManager(job3));
+
+    // 自定义出队逻辑
+    try {
+        while (!jobQueue.empty()) {
+            JobManager dequeuedJob = jobQueue.dequeue();
+            std::cout << "Dequeued job with ID: " << dequeuedJob.findJobByJobId(dequeuedJob.getJobInfo()->job_id)->job_id << std::endl;
+        }
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
     }
-    std::cout << std::endl;
-
-    auto front = queue1.front();
-    auto back = queue1.back();
-    std::cout << "Module A: front " << static_cast<int>(front.getTypeOperation()) << std::endl;
-    std::cout << "Module A: back " << static_cast<int>(back.getTypeOperation()) << std::endl;
 
     return 0;
 }

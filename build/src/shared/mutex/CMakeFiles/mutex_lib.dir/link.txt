@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmutex_lib.a CMakeFiles/mutex_lib.dir/MutexLock.cpp.o
+/usr/bin/ranlib libmutex_lib.a

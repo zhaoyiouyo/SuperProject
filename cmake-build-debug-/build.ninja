@@ -70,81 +70,225 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target shared_lib
+# Object build statements for STATIC_LIBRARY target mutex_lib
 
 
 #############################################
-# Order-only phony target for shared_lib
+# Order-only phony target for mutex_lib
 
-build cmake_object_order_depends_target_shared_lib: phony || src/shared/CMakeFiles/shared_lib.dir
+build cmake_object_order_depends_target_mutex_lib: phony || src/shared/mutex/CMakeFiles/mutex_lib.dir
 
-build src/shared/CMakeFiles/shared_lib.dir/TapeDrivesQueue.cpp.o: CXX_COMPILER__shared_lib_unscanned_Debug /home/zhaoyiou/SuperProject/src/shared/TapeDrivesQueue.cpp || cmake_object_order_depends_target_shared_lib
-  DEP_FILE = src/shared/CMakeFiles/shared_lib.dir/TapeDrivesQueue.cpp.o.d
+build src/shared/mutex/CMakeFiles/mutex_lib.dir/MutexLock.cpp.o: CXX_COMPILER__mutex_lib_unscanned_Debug /home/zhaoyiou/SuperProject/src/shared/mutex/MutexLock.cpp || cmake_object_order_depends_target_mutex_lib
+  DEP_FILE = src/shared/mutex/CMakeFiles/mutex_lib.dir/MutexLock.cpp.o.d
   FLAGS = -g -std=gnu++1z -fdiagnostics-color=always
-  INCLUDES = -I/home/zhaoyiou/SuperProject/src -I/home/zhaoyiou/SuperProject/src/shared
-  OBJECT_DIR = src/shared/CMakeFiles/shared_lib.dir
-  OBJECT_FILE_DIR = src/shared/CMakeFiles/shared_lib.dir
-  TARGET_COMPILE_PDB = src/shared/CMakeFiles/shared_lib.dir/shared_lib.pdb
-  TARGET_PDB = src/shared/libshared_lib.pdb
-
-build src/shared/CMakeFiles/shared_lib.dir/TapeDrivesOperation.cpp.o: CXX_COMPILER__shared_lib_unscanned_Debug /home/zhaoyiou/SuperProject/src/shared/TapeDrivesOperation.cpp || cmake_object_order_depends_target_shared_lib
-  DEP_FILE = src/shared/CMakeFiles/shared_lib.dir/TapeDrivesOperation.cpp.o.d
-  FLAGS = -g -std=gnu++1z -fdiagnostics-color=always
-  INCLUDES = -I/home/zhaoyiou/SuperProject/src -I/home/zhaoyiou/SuperProject/src/shared
-  OBJECT_DIR = src/shared/CMakeFiles/shared_lib.dir
-  OBJECT_FILE_DIR = src/shared/CMakeFiles/shared_lib.dir
-  TARGET_COMPILE_PDB = src/shared/CMakeFiles/shared_lib.dir/shared_lib.pdb
-  TARGET_PDB = src/shared/libshared_lib.pdb
-
-build src/shared/CMakeFiles/shared_lib.dir/MutexLock.cpp.o: CXX_COMPILER__shared_lib_unscanned_Debug /home/zhaoyiou/SuperProject/src/shared/MutexLock.cpp || cmake_object_order_depends_target_shared_lib
-  DEP_FILE = src/shared/CMakeFiles/shared_lib.dir/MutexLock.cpp.o.d
-  FLAGS = -g -std=gnu++1z -fdiagnostics-color=always
-  INCLUDES = -I/home/zhaoyiou/SuperProject/src -I/home/zhaoyiou/SuperProject/src/shared
-  OBJECT_DIR = src/shared/CMakeFiles/shared_lib.dir
-  OBJECT_FILE_DIR = src/shared/CMakeFiles/shared_lib.dir
-  TARGET_COMPILE_PDB = src/shared/CMakeFiles/shared_lib.dir/shared_lib.pdb
-  TARGET_PDB = src/shared/libshared_lib.pdb
+  INCLUDES = -I/home/zhaoyiou/SuperProject/src -I/home/zhaoyiou/SuperProject/src/shared/mutex
+  OBJECT_DIR = src/shared/mutex/CMakeFiles/mutex_lib.dir
+  OBJECT_FILE_DIR = src/shared/mutex/CMakeFiles/mutex_lib.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target shared_lib
+# Link build statements for STATIC_LIBRARY target mutex_lib
 
 
 #############################################
-# Link the static library src/shared/libshared_lib.a
+# Link the static library src/shared/mutex/libmutex_lib.a
 
-build src/shared/libshared_lib.a: CXX_STATIC_LIBRARY_LINKER__shared_lib_Debug src/shared/CMakeFiles/shared_lib.dir/TapeDrivesQueue.cpp.o src/shared/CMakeFiles/shared_lib.dir/TapeDrivesOperation.cpp.o src/shared/CMakeFiles/shared_lib.dir/MutexLock.cpp.o
+build src/shared/mutex/libmutex_lib.a: CXX_STATIC_LIBRARY_LINKER__mutex_lib_Debug src/shared/mutex/CMakeFiles/mutex_lib.dir/MutexLock.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = src/shared/CMakeFiles/shared_lib.dir
+  OBJECT_DIR = src/shared/mutex/CMakeFiles/mutex_lib.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = src/shared/CMakeFiles/shared_lib.dir/shared_lib.pdb
-  TARGET_FILE = src/shared/libshared_lib.a
-  TARGET_PDB = src/shared/libshared_lib.pdb
+  TARGET_FILE = src/shared/mutex/libmutex_lib.a
+  TARGET_PDB = mutex_lib.a.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
-build src/shared/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared && /usr/local/bin/ccmake -S/home/zhaoyiou/SuperProject -B/home/zhaoyiou/SuperProject/cmake-build-debug-
+build src/shared/mutex/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared/mutex && /usr/local/bin/ccmake -S/home/zhaoyiou/SuperProject -B/home/zhaoyiou/SuperProject/cmake-build-debug-
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
 
-build src/shared/edit_cache: phony src/shared/CMakeFiles/edit_cache.util
+build src/shared/mutex/edit_cache: phony src/shared/mutex/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build src/shared/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared && /usr/local/bin/cmake --regenerate-during-build -S/home/zhaoyiou/SuperProject -B/home/zhaoyiou/SuperProject/cmake-build-debug-
+build src/shared/mutex/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared/mutex && /usr/local/bin/cmake --regenerate-during-build -S/home/zhaoyiou/SuperProject -B/home/zhaoyiou/SuperProject/cmake-build-debug-
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build src/shared/rebuild_cache: phony src/shared/CMakeFiles/rebuild_cache.util
+build src/shared/mutex/rebuild_cache: phony src/shared/mutex/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/zhaoyiou/SuperProject/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/shared/queue/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared/queue && /usr/local/bin/ccmake -S/home/zhaoyiou/SuperProject -B/home/zhaoyiou/SuperProject/cmake-build-debug-
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build src/shared/queue/edit_cache: phony src/shared/queue/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/shared/queue/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared/queue && /usr/local/bin/cmake --regenerate-during-build -S/home/zhaoyiou/SuperProject -B/home/zhaoyiou/SuperProject/cmake-build-debug-
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/shared/queue/rebuild_cache: phony src/shared/queue/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/zhaoyiou/SuperProject/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target tape_lib
+
+
+#############################################
+# Order-only phony target for tape_lib
+
+build cmake_object_order_depends_target_tape_lib: phony || src/tape/CMakeFiles/tape_lib.dir
+
+build src/tape/CMakeFiles/tape_lib.dir/TapeDrivesQueue.cpp.o: CXX_COMPILER__tape_lib_unscanned_Debug /home/zhaoyiou/SuperProject/src/tape/TapeDrivesQueue.cpp || cmake_object_order_depends_target_tape_lib
+  DEP_FILE = src/tape/CMakeFiles/tape_lib.dir/TapeDrivesQueue.cpp.o.d
+  FLAGS = -g -std=gnu++1z -fdiagnostics-color=always
+  INCLUDES = -I/home/zhaoyiou/SuperProject/src -I/home/zhaoyiou/SuperProject/src/tape
+  OBJECT_DIR = src/tape/CMakeFiles/tape_lib.dir
+  OBJECT_FILE_DIR = src/tape/CMakeFiles/tape_lib.dir
+
+build src/tape/CMakeFiles/tape_lib.dir/TapeDrivesOperation.cpp.o: CXX_COMPILER__tape_lib_unscanned_Debug /home/zhaoyiou/SuperProject/src/tape/TapeDrivesOperation.cpp || cmake_object_order_depends_target_tape_lib
+  DEP_FILE = src/tape/CMakeFiles/tape_lib.dir/TapeDrivesOperation.cpp.o.d
+  FLAGS = -g -std=gnu++1z -fdiagnostics-color=always
+  INCLUDES = -I/home/zhaoyiou/SuperProject/src -I/home/zhaoyiou/SuperProject/src/tape
+  OBJECT_DIR = src/tape/CMakeFiles/tape_lib.dir
+  OBJECT_FILE_DIR = src/tape/CMakeFiles/tape_lib.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target tape_lib
+
+
+#############################################
+# Link the static library src/tape/libtape_lib.a
+
+build src/tape/libtape_lib.a: CXX_STATIC_LIBRARY_LINKER__tape_lib_Debug src/tape/CMakeFiles/tape_lib.dir/TapeDrivesQueue.cpp.o src/tape/CMakeFiles/tape_lib.dir/TapeDrivesOperation.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = src/tape/CMakeFiles/tape_lib.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/tape/libtape_lib.a
+  TARGET_PDB = tape_lib.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/tape/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/zhaoyiou/SuperProject/cmake-build-debug-/src/tape && /usr/local/bin/ccmake -S/home/zhaoyiou/SuperProject -B/home/zhaoyiou/SuperProject/cmake-build-debug-
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build src/tape/edit_cache: phony src/tape/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/tape/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/zhaoyiou/SuperProject/cmake-build-debug-/src/tape && /usr/local/bin/cmake --regenerate-during-build -S/home/zhaoyiou/SuperProject -B/home/zhaoyiou/SuperProject/cmake-build-debug-
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/tape/rebuild_cache: phony src/tape/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/zhaoyiou/SuperProject/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target job_lib
+
+
+#############################################
+# Order-only phony target for job_lib
+
+build cmake_object_order_depends_target_job_lib: phony || src/job/CMakeFiles/job_lib.dir
+
+build src/job/CMakeFiles/job_lib.dir/JobManager.cpp.o: CXX_COMPILER__job_lib_unscanned_Debug /home/zhaoyiou/SuperProject/src/job/JobManager.cpp || cmake_object_order_depends_target_job_lib
+  DEP_FILE = src/job/CMakeFiles/job_lib.dir/JobManager.cpp.o.d
+  FLAGS = -g -std=gnu++1z -fdiagnostics-color=always
+  INCLUDES = -I/home/zhaoyiou/SuperProject/src -I/home/zhaoyiou/SuperProject/src/job
+  OBJECT_DIR = src/job/CMakeFiles/job_lib.dir
+  OBJECT_FILE_DIR = src/job/CMakeFiles/job_lib.dir
+
+build src/job/CMakeFiles/job_lib.dir/JobQueue.cpp.o: CXX_COMPILER__job_lib_unscanned_Debug /home/zhaoyiou/SuperProject/src/job/JobQueue.cpp || cmake_object_order_depends_target_job_lib
+  DEP_FILE = src/job/CMakeFiles/job_lib.dir/JobQueue.cpp.o.d
+  FLAGS = -g -std=gnu++1z -fdiagnostics-color=always
+  INCLUDES = -I/home/zhaoyiou/SuperProject/src -I/home/zhaoyiou/SuperProject/src/job
+  OBJECT_DIR = src/job/CMakeFiles/job_lib.dir
+  OBJECT_FILE_DIR = src/job/CMakeFiles/job_lib.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target job_lib
+
+
+#############################################
+# Link the static library src/job/libjob_lib.a
+
+build src/job/libjob_lib.a: CXX_STATIC_LIBRARY_LINKER__job_lib_Debug src/job/CMakeFiles/job_lib.dir/JobManager.cpp.o src/job/CMakeFiles/job_lib.dir/JobQueue.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = src/job/CMakeFiles/job_lib.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/job/libjob_lib.a
+  TARGET_PDB = job_lib.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/job/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/zhaoyiou/SuperProject/cmake-build-debug-/src/job && /usr/local/bin/ccmake -S/home/zhaoyiou/SuperProject -B/home/zhaoyiou/SuperProject/cmake-build-debug-
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build src/job/edit_cache: phony src/job/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/job/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/zhaoyiou/SuperProject/cmake-build-debug-/src/job && /usr/local/bin/cmake --regenerate-during-build -S/home/zhaoyiou/SuperProject -B/home/zhaoyiou/SuperProject/cmake-build-debug-
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/job/rebuild_cache: phony src/job/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -158,16 +302,14 @@ build src/shared/rebuild_cache: phony src/shared/CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for test_queue
 
-build cmake_object_order_depends_target_test_queue: phony || cmake_object_order_depends_target_shared_lib
+build cmake_object_order_depends_target_test_queue: phony || cmake_object_order_depends_target_job_lib cmake_object_order_depends_target_mutex_lib
 
 build test/CMakeFiles/test_queue.dir/TestQueue.cpp.o: CXX_COMPILER__test_queue_unscanned_Debug /home/zhaoyiou/SuperProject/test/TestQueue.cpp || cmake_object_order_depends_target_test_queue
   DEP_FILE = test/CMakeFiles/test_queue.dir/TestQueue.cpp.o.d
   FLAGS = -g -std=gnu++1z -fdiagnostics-color=always
-  INCLUDES = -I/home/zhaoyiou/SuperProject/src -I/home/zhaoyiou/SuperProject/src/shared
+  INCLUDES = -I/home/zhaoyiou/SuperProject/src -I/home/zhaoyiou/SuperProject/src/shared/mutex -I/home/zhaoyiou/SuperProject/src/shared/queue -I/home/zhaoyiou/SuperProject/src/job
   OBJECT_DIR = test/CMakeFiles/test_queue.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_queue.dir
-  TARGET_COMPILE_PDB = test/CMakeFiles/test_queue.dir/
-  TARGET_PDB = /home/zhaoyiou/SuperProject/test/bin/test_queue.pdb
 
 
 # =============================================================================
@@ -177,15 +319,14 @@ build test/CMakeFiles/test_queue.dir/TestQueue.cpp.o: CXX_COMPILER__test_queue_u
 #############################################
 # Link the executable /home/zhaoyiou/SuperProject/test/bin/test_queue
 
-build /home/zhaoyiou/SuperProject/test/bin/test_queue: CXX_EXECUTABLE_LINKER__test_queue_Debug test/CMakeFiles/test_queue.dir/TestQueue.cpp.o | src/shared/libshared_lib.a || src/shared/libshared_lib.a
+build /home/zhaoyiou/SuperProject/test/bin/test_queue: CXX_EXECUTABLE_LINKER__test_queue_Debug test/CMakeFiles/test_queue.dir/TestQueue.cpp.o | src/job/libjob_lib.a src/shared/mutex/libmutex_lib.a || src/job/libjob_lib.a src/shared/mutex/libmutex_lib.a
   FLAGS = -g
-  LINK_LIBRARIES = src/shared/libshared_lib.a  -lpthread
+  LINK_LIBRARIES = src/job/libjob_lib.a  src/shared/mutex/libmutex_lib.a  -lpthread
   OBJECT_DIR = test/CMakeFiles/test_queue.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = test/CMakeFiles/test_queue.dir/
   TARGET_FILE = /home/zhaoyiou/SuperProject/test/bin/test_queue
-  TARGET_PDB = /home/zhaoyiou/SuperProject/test/bin/test_queue.pdb
+  TARGET_PDB = test_queue.dbg
 
 
 #############################################
@@ -214,9 +355,17 @@ build test/rebuild_cache: phony test/CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build libshared_lib.a: phony src/shared/libshared_lib.a
+build job_lib: phony src/job/libjob_lib.a
 
-build shared_lib: phony src/shared/libshared_lib.a
+build libjob_lib.a: phony src/job/libjob_lib.a
+
+build libmutex_lib.a: phony src/shared/mutex/libmutex_lib.a
+
+build libtape_lib.a: phony src/tape/libtape_lib.a
+
+build mutex_lib: phony src/shared/mutex/libmutex_lib.a
+
+build tape_lib: phony src/tape/libtape_lib.a
 
 build test_queue: phony /home/zhaoyiou/SuperProject/test/bin/test_queue
 
@@ -228,14 +377,35 @@ build test_queue: phony /home/zhaoyiou/SuperProject/test/bin/test_queue
 #############################################
 # Folder: /home/zhaoyiou/SuperProject/cmake-build-debug-
 
-build all: phony src/shared/all test/all
+build all: phony src/shared/mutex/all src/shared/queue/all src/tape/all src/job/all test/all
 
 # =============================================================================
 
 #############################################
-# Folder: /home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared
+# Folder: /home/zhaoyiou/SuperProject/cmake-build-debug-/src/job
 
-build src/shared/all: phony src/shared/libshared_lib.a
+build src/job/all: phony src/job/libjob_lib.a
+
+# =============================================================================
+
+#############################################
+# Folder: /home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared/mutex
+
+build src/shared/mutex/all: phony src/shared/mutex/libmutex_lib.a
+
+# =============================================================================
+
+#############################################
+# Folder: /home/zhaoyiou/SuperProject/cmake-build-debug-/src/shared/queue
+
+build src/shared/queue/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: /home/zhaoyiou/SuperProject/cmake-build-debug-/src/tape
+
+build src/tape/all: phony src/tape/libtape_lib.a
 
 # =============================================================================
 
@@ -251,14 +421,14 @@ build test/all: phony /home/zhaoyiou/SuperProject/test/bin/test_queue
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/zhaoyiou/SuperProject/CMakeLists.txt /home/zhaoyiou/SuperProject/src/shared/CMakeLists.txt /home/zhaoyiou/SuperProject/test/CMakeLists.txt /usr/local/share/cmake-3.26/Modules/CMakeCCompiler.cmake.in /usr/local/share/cmake-3.26/Modules/CMakeCCompilerABI.c /usr/local/share/cmake-3.26/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeCXXCompiler.cmake.in /usr/local/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp /usr/local/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.26/Modules/CMakeCompilerIdDetection.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCompileFeatures.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake /usr/local/share/cmake-3.26/Modules/CMakeFindBinUtils.cmake /usr/local/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeNinjaFindMake.cmake /usr/local/share/cmake-3.26/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/local/share/cmake-3.26/Modules/CMakeParseImplicitLinkInfo.cmake /usr/local/share/cmake-3.26/Modules/CMakeParseLibraryArchitecture.cmake /usr/local/share/cmake-3.26/Modules/CMakeSystem.cmake.in /usr/local/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake /usr/local/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake /usr/local/share/cmake-3.26/Modules/CMakeTestCompilerCommon.cmake /usr/local/share/cmake-3.26/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-FindBinUtils.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.26/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/LCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/TI-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Internal/FeatureTesting.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-Determine-CXX.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.26/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.26.3/CMakeCCompiler.cmake CMakeFiles/3.26.3/CMakeCXXCompiler.cmake CMakeFiles/3.26.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/zhaoyiou/SuperProject/CMakeLists.txt /home/zhaoyiou/SuperProject/src/job/CMakeLists.txt /home/zhaoyiou/SuperProject/src/shared/mutex/CMakeLists.txt /home/zhaoyiou/SuperProject/src/shared/queue/CMakeLists.txt /home/zhaoyiou/SuperProject/src/tape/CMakeLists.txt /home/zhaoyiou/SuperProject/test/CMakeLists.txt /usr/local/share/cmake-3.26/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.26/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.26.3/CMakeCCompiler.cmake CMakeFiles/3.26.3/CMakeCXXCompiler.cmake CMakeFiles/3.26.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/zhaoyiou/SuperProject/CMakeLists.txt /home/zhaoyiou/SuperProject/src/shared/CMakeLists.txt /home/zhaoyiou/SuperProject/test/CMakeLists.txt /usr/local/share/cmake-3.26/Modules/CMakeCCompiler.cmake.in /usr/local/share/cmake-3.26/Modules/CMakeCCompilerABI.c /usr/local/share/cmake-3.26/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeCXXCompiler.cmake.in /usr/local/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp /usr/local/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.26/Modules/CMakeCompilerIdDetection.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCompileFeatures.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake /usr/local/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake /usr/local/share/cmake-3.26/Modules/CMakeFindBinUtils.cmake /usr/local/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeNinjaFindMake.cmake /usr/local/share/cmake-3.26/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/local/share/cmake-3.26/Modules/CMakeParseImplicitLinkInfo.cmake /usr/local/share/cmake-3.26/Modules/CMakeParseLibraryArchitecture.cmake /usr/local/share/cmake-3.26/Modules/CMakeSystem.cmake.in /usr/local/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake /usr/local/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake /usr/local/share/cmake-3.26/Modules/CMakeTestCompilerCommon.cmake /usr/local/share/cmake-3.26/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-FindBinUtils.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.26/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/LCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/TI-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/local/share/cmake-3.26/Modules/Internal/FeatureTesting.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-Determine-CXX.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.26/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.26.3/CMakeCCompiler.cmake CMakeFiles/3.26.3/CMakeCXXCompiler.cmake CMakeFiles/3.26.3/CMakeSystem.cmake: phony
+build /home/zhaoyiou/SuperProject/CMakeLists.txt /home/zhaoyiou/SuperProject/src/job/CMakeLists.txt /home/zhaoyiou/SuperProject/src/shared/mutex/CMakeLists.txt /home/zhaoyiou/SuperProject/src/shared/queue/CMakeLists.txt /home/zhaoyiou/SuperProject/src/tape/CMakeLists.txt /home/zhaoyiou/SuperProject/test/CMakeLists.txt /usr/local/share/cmake-3.26/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.26/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.26/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.26/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.26.3/CMakeCCompiler.cmake CMakeFiles/3.26.3/CMakeCXXCompiler.cmake CMakeFiles/3.26.3/CMakeSystem.cmake: phony
 
 
 #############################################
