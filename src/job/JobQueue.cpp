@@ -18,10 +18,10 @@ JobQueue& JobQueue::getInstance() {
  * 如果当前任务状态为 Suspending 或 Cancelling，则将其放回队尾并继续尝试出队。
  * 如果状态为 Queuing、Retry 或 Resume，则正常返回任务。
  *
- * @return JobManager 返回符合条件的任务。
+ * @return 包含任务的 std::optional 对象。如果未找到任务，则返回 std::nullopt。
  */
-JobManager JobQueue::dequeue() {
-    while (!empty()) {
+std::optional<JobManager> JobQueue::dequeue() {
+    if (!empty()) {
         // 调用基类的 pop_front 方法取出队首任务
         JobManager job = pop_front();
 
@@ -37,12 +37,12 @@ JobManager JobQueue::dequeue() {
                     jobInfo->status == JobStatus::Retry ||
                     jobInfo->status == JobStatus::Resume)) {
             // 如果状态为 Queuing、Retry 或 Resume，则正常返回任务
+            job_map_.erase(job.getJobId().value()); // 从哈希表中移除任务
             return job;
         }
     }
-
-    // 如果队列为空，抛出异常
-    throw std::runtime_error("No valid jobs available in the queue.");
+    // 如果队列为空，或不满足出队条件，返回 std::nullopt
+    return std::nullopt;
 }
 
 /**
@@ -51,5 +51,32 @@ JobManager JobQueue::dequeue() {
  * @param job 要入队的任务。
  */
 void JobQueue::enqueue(const JobManager& job) {
+    // 调用基类的 push_back 方法
     push_back(job);
+
+    // 获取新插入节点的指针
+    Node* newNode = tail_;
+
+    // 将 job_id 和节点指针存入哈希表
+    job_map_[job.getJobId().value()] = newNode;
+}
+
+std::optional<JobManager> JobQueue::dequeueByJobId(const std::string& job_id) {
+    // 在哈希表中查找 job_id
+    auto it = job_map_.find(job_id);
+    if (it == job_map_.end()) {
+        return std::nullopt; // 未找到任务
+    }
+
+    // 获取要移除的节点
+    Node* nodeToRemove = it->second;
+
+    // 从队列中移除节点
+    JobManager job = remove(nodeToRemove);
+
+    // 从哈希表中移除 job_id
+    job_map_.erase(it);
+
+    // 返回移除的任务
+    return job;
 }

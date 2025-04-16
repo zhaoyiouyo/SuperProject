@@ -138,6 +138,18 @@ public:
     T pop_front();
 
     /**
+     * @brief 从队列中移除指定的节点。
+     *
+     * - 如果节点不存在于队列中，则抛出 std::invalid_argument 异常。
+     * - 线程安全：该操作在执行时会加锁以防止并发访问问题。
+     *
+     * @param node 要移除的节点指针。
+     *
+     * @return T 删除的元素。
+     */
+    T remove(Node* node);
+
+    /**
      * @brief 检查队列是否为空。
      *
      * - 如果队列为空，则返回 true；否则返回 false。
@@ -361,6 +373,44 @@ T BaseQueue<T>::pop_front() {
         head_->prev_ = nullptr;
     }
     --count_;
+    return value;
+}
+
+template<typename T>
+T BaseQueue<T>::remove(Node* node) {
+    if (!node || empty()) {
+        throw std::invalid_argument("Invalid node or queue is empty");
+    }
+
+    // 检查节点是否是头节点
+    if (node == head_.get()) {
+        return pop_front();
+    }
+
+    // 检查节点是否是尾节点
+    if (node == tail_) {
+        return pop_back();
+    }
+
+    MutexLockGuard autoLock(mutex_);
+
+    T value = std::move(node->data_);
+
+    // 节点是中间节点
+    Node* prevNode = node->prev_;
+    Node* nextNode = node->next_.get();
+
+    if (!prevNode || !nextNode) {
+        throw std::invalid_argument("Node is not part of the queue");
+    }
+
+    // 更新前驱节点和后继节点之间的链接
+    prevNode->next_ = std::move(node->next_);
+    nextNode->prev_ = prevNode;
+
+    // 减少计数
+    --count_;
+
     return value;
 }
 

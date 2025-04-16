@@ -13,15 +13,44 @@ int main() {
     jobQueue.enqueue(JobManager(job2));
     jobQueue.enqueue(JobManager(job3));
 
-    // 自定义出队逻辑
-    try {
-        while (!jobQueue.empty()) {
-            JobManager dequeuedJob = jobQueue.dequeue();
-            std::cout << "Dequeued job with ID: " << dequeuedJob.findJobByJobId(dequeuedJob.getJobInfo()->job_id)->job_id << std::endl;
-        }
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
+    std::cout << "size: " << jobQueue.size() << std::endl;
+
+    auto res = jobQueue.dequeue();
+    if (!res.has_value())
+    {
+        std::cout << "Dequeued job with ID: " << "空" << std::endl;
     }
+    auto dequeuedJob = res.value();
+    std::cout << "Dequeued job with ID: " << dequeuedJob.getJobId().value() << std::endl;
+
+    res = jobQueue.dequeue();
+    if (!res.has_value())
+    {
+        std::cout << "Dequeued job with ID: " << "空" << std::endl;
+    }
+
+    res = jobQueue.dequeue();
+    if (!res.has_value())
+    {
+        std::cout << "Dequeued job with ID: " << "空" << std::endl;
+    }
+    dequeuedJob = res.value();
+    std::cout << "Dequeued job with ID: " << dequeuedJob.getJobId().value() << std::endl;
+
+    std::cout << "size: " << jobQueue.size() << std::endl;
+
+    jobQueue.enqueue(JobManager(job1));
+    jobQueue.enqueue(JobManager(job3));
+
+    // 根据 job_id 移除任务
+    auto removedJob = jobQueue.dequeueByJobId("2");
+    if (removedJob) {
+        std::cout << "Removed job with ID: " << removedJob->getJobId().value() << std::endl;
+    } else {
+        std::cout << "Job with ID 2 not found!" << std::endl;
+    }
+
+    std::cout << "size: " << jobQueue.size() << std::endl;
 
     return 0;
 }

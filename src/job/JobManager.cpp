@@ -33,15 +33,23 @@ JobManager& JobManager::operator=(JobManager&& other) noexcept {
 }
 
 std::optional<JobInfo> JobManager::findJobByJobId(const std::string& job_id) const {
-    if (job_info_ && job_info_->job_id == job_id) {
-        return *job_info_;
-    }
-    return std::nullopt;
+    // todo:不是这么查找的，有问题，注释掉
+    // if (job_info_ && job_info_->job_id == job_id) {
+    //     return *job_info_;
+    // }
+    // return std::nullopt;
 }
 
 std::optional<JobInfo> JobManager::getJobInfo() const {
     if (job_info_) {
         return *job_info_;
+    }
+    return std::nullopt;
+}
+
+std::optional<std::string> JobManager::getJobId() const {
+    if (job_info_) {
+        return job_info_->job_id;
     }
     return std::nullopt;
 }

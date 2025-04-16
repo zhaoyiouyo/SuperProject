@@ -111,4 +111,13 @@ public:
      * @return std::optional<JobInfo> 包含任务信息的可选对象。
      */
     std::optional<JobInfo> getJobInfo() const;
+
+    /**
+     * @brief 返回任务的 JobInfo。
+     *
+     * 如果任务信息存在，则返回包含 JobInfo 的 std::optional；否则返回 std::nullopt。
+     *
+     * @return std::optional<JobInfo> 包含任务信息的可选对象。
+     */
+    std::optional<std::string> getJobId() const;
 };

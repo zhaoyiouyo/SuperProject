@@ -1,5 +1,7 @@
 #pragma once
 
+#include <unordered_map>
+
 #include "shared/queue/BaseQueue.hpp"
 #include "JobManager.hpp"
 
@@ -27,9 +29,9 @@ public:
      * 如果当前任务状态为 Suspending 或 Cancelling，则将其放回队尾并继续尝试出队。
      * 如果状态为 Queuing、Retry 或 Resume，则正常返回任务。
      *
-     * @return JobManager 返回符合条件的任务。
+     * @return 包含任务的 std::optional 对象。如果未找到任务，则返回 std::nullopt。
      */
-    JobManager dequeue();
+    std::optional<JobManager> dequeue();
  
     /**
      * @brief 封装基类的 push_back 方法，提供统一的入队接口。
@@ -37,6 +39,17 @@ public:
      * @param job 要入队的任务。
      */
     void enqueue(const JobManager& job);
+
+    /**
+     * @brief 根据 job_id 移除指定任务。
+     *
+     * - 如果找到对应的任务，则从队列中移除并返回该任务。
+     * - 如果未找到任务，则返回 std::nullopt。
+     *
+     * @param job_id 要移除的任务 ID。
+     * @return 包含任务的 std::optional 对象。如果未找到任务，则返回 std::nullopt。
+     */
+    std::optional<JobManager> dequeueByJobId(const std::string& job_id);
 
 private:
     /**
@@ -61,4 +74,12 @@ private:
      * @return JobQueue& 返回引用自身（未定义行为，因为该函数已被删除）。
      */
     JobQueue& operator=(const JobQueue&) = delete;
+
+    /**
+     * @brief 哈希表，用于存储 job_id 和对应节点的映射。
+     *
+     * - 键：任务 ID（std::string）。
+     * - 值：指向任务节点的指针（BaseQueue<T>::Node*）。
+     */
+    std::unordered_map<std::string, Node*> job_map_;
 };
